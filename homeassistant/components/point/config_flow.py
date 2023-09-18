@@ -86,7 +86,7 @@ class PointFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             client_id,
             client_secret,
         )
-        await point_session.get_access_token()  # No code parameter needed
+        token = await point_session.get_access_token()  # No code parameter needed
         _LOGGER.debug("Got new token")
         if not point_session.is_authorized:
             _LOGGER.error("Authentication Error")
